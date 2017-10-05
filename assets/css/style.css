@@ -8,6 +8,16 @@ body {
 	font-family: 'Nosifer', cursive;
 	font-size: 1.5em;
 	background-image: url(../images/ep_naturalwhite.png);
+	margin-bottom: 100px;
+}
+
+#myhead {
+	color: #000;
+	background-image: url(https://www.freewebheaders.com/wordpress/wp-content/gallery/stars/rainbow-stars-background-header.jpg);
+	font-family: 'Monofett', cursive;
+	font-size: 5em;
+	text-align: center;
+	margin: -10px 0 30px 0;
 }
 
 .mytitle {
@@ -16,30 +26,28 @@ body {
 }
 
 .mybox {
-	height: 500px;
+	height: 450px;
 	border: 3px dotted #fff !important;
-	padding-top: 30px;
+	padding-top: 15px;
 }
 
 .mysep {
 	border-top: 3px dashed #fff !important;
-	padding-top: 30px;
+	padding-top: 15px;
 }
 
 #wordImage {
 	width: 220px;
 	height: 200px;
-	margin-bottom: 30px;
+	margin-bottom: 15px;
 }
 
 #ansWord, #userScore, #userWord, #userRemained, #userGuessed {
 	color: yellow;
-	padding-bottom: 30px;
+	padding-bottom: 15px;
 }
 
 @media screen and (max-width: 992px) {
-	.mybox {
-		height: auto;
-	}
+
 }
 
