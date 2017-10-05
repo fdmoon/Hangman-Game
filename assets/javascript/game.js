@@ -1,12 +1,21 @@
+/***********************************************
+ * Word is randomly selected.
+ * Game is over when # of wins is 3.
+ ***********************************************/
+
 var wordBank = {
 	wordList: {
 		wd1: ["advertise", "assets/images/wd1_img.jpg"],
-		wd2: ["", ""]	// End of question
+		wd2: ["zombie", "assets/images/wd2_img.jpg"],
+		wd3: ["vodka", "assets/images/wd3_img.jpg"],
+		wd4: ["galaxy", "assets/images/wd4_img.jpg"],
+		wd5: ["cobweb", "assets/images/wd5_img.jpg"],
 	},
 	wordPos: 0,
+	wordMax: 5,
 
 	getWordQuestion: function() {
-		this.wordPos++;
+		this.wordPos = Math.floor(Math.random() * this.wordMax) + 1;
 		return this.wordList["wd" + this.wordPos];
 	}
 }
@@ -23,14 +32,12 @@ var userData = {
 
 	setNewWord: function(str) {
 		this.answerWord.length = 0;
-		this.answerWord = str.split("");
-
 		this.userWord.length = 0;
-
 		this.remained = 10;
 		this.guessed = [];
 
-		if(str !== "") {
+		if(this.score.numWin < 3) {
+			this.answerWord = str.split("");
 			for(var i = 0; i < str.length; i++) {
 				this.userWord.push("_");
 			}
@@ -72,8 +79,8 @@ var userData = {
 	},
 
 	scoreHTML: function() {
-		var text1 = "<ul><li># OF WIN: " + this.score.numWin + "</li>";
-		var text2 = "<li># OF LOSE: " + this.score.numLose + "</li></ul>";
+		var text1 = "<ul><li># OF WINS: " + this.score.numWin + "</li>";
+		var text2 = "<li># OF LOSES: " + this.score.numLose + "</li></ul>";
 
 		return (text1 + text2);
 	},

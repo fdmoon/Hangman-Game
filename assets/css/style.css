@@ -7,8 +7,13 @@ body {
 	background-color: #000;
 	font-family: 'Nosifer', cursive;
 	font-size: 1.5em;
-	background-image: url(../images/ep_naturalwhite.png);
-	margin-bottom: 100px;
+	margin-bottom: 30px;
+}
+
+ul {
+	list-style-type: disc;
+	list-style-position: outside;
+	padding-left: 15px;
 }
 
 #myhead {
@@ -39,7 +44,7 @@ body {
 #wordImage {
 	width: 220px;
 	height: 200px;
-	margin-bottom: 15px;
+	margin-bottom: 30px;
 }
 
 #ansWord, #userScore, #userWord, #userRemained, #userGuessed {
@@ -48,6 +53,8 @@ body {
 }
 
 @media screen and (max-width: 992px) {
-
+	.mybox {
+		height: auto;
+	}
 }
 
