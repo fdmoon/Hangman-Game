@@ -1,6 +1,6 @@
 var wordBank = {
 	wordList: {
-		wd1: ["advertisement", "assets/images/wd1_img.jpg"],
+		wd1: ["advertise", "assets/images/wd1_img.jpg"],
 		wd2: ["", ""]	// End of question
 	},
 	wordPos: 0,
@@ -22,12 +22,24 @@ var userData = {
 	},
 
 	setNewWord: function(str) {
+		this.answerWord.length = 0;
 		this.answerWord = str.split("");
-		for(var i = 0; i < str.length; i++) {
-			this.userWord.push("_");
-		}
+
+		this.userWord.length = 0;
+
 		this.remained = 10;
 		this.guessed = [];
+
+		if(str !== "") {
+			for(var i = 0; i < str.length; i++) {
+				this.userWord.push("_");
+			}
+			return true;
+		}
+		else {
+			this.userWord = "GAME-OVER!".split("");
+			return false;
+		}
 	},
 
 	isNewGuessed: function(x) {
@@ -42,6 +54,7 @@ var userData = {
 
 	setUserWord: function(x) {
 		var idx = this.answerWord.indexOf(x);
+
 		if(idx !== -1) {
 			for(var i = 0; i < this.answerWord.length; i++) {
 				if(this.answerWord[i] === x) {
@@ -61,6 +74,7 @@ var userData = {
 	scoreHTML: function() {
 		var text1 = "<ul><li># OF WIN: " + this.score.numWin + "</li>";
 		var text2 = "<li># OF LOSE: " + this.score.numLose + "</li></ul>";
+
 		return (text1 + text2);
 	},
 
@@ -82,8 +96,8 @@ function renderQuestion() {
 	// get new question
 	var curQuestion = wordBank.getWordQuestion();
 
-	// clear userWord and guessed of userData
-	userData.setNewWord(curQuestion[0]);
+	// initialize userData except score
+	return userData.setNewWord(curQuestion[0]);
 }
 
 function showUserStatus() {
@@ -93,28 +107,33 @@ function showUserStatus() {
 	document.querySelector("#userScore").innerHTML = userData.scoreHTML();
 }
 
-renderQuestion();
+var gGameRun = true;
+
+gGameRun = renderQuestion();
 showUserStatus();
 
 document.onkeyup = function(event) {
-	var inKey = event.key.toLowerCase();
+	if(gGameRun) {
+		var letter = event.key.toLowerCase();	
 
-	// To avoid input like tab, alt, ...
-	var letter = inKey[0];
+		// To check alphabet and to avoid input like tab, alt, ...
+		if (letter.match(/[a-z]/i) && (letter.length === 1)) {
+			if(userData.isNewGuessed(letter)) {
+				userData.setUserWord(letter);
+			}
+			else {
+				alert(letter + " is the letter you've already guessed!");
+			}
 
-	if (letter.match(/[a-z]/i)) {
-		if(userData.isNewGuessed(letter)) {
-			userData.setUserWord(letter);
+			if(userData.isDone()) {
+				document.querySelector("#ansWord").innerHTML = wordBank.wordList["wd" + wordBank.wordPos][0];
+				document.getElementById("wordImage").src = wordBank.wordList["wd" + wordBank.wordPos][1];
+
+				gGameRun = renderQuestion();
+			}
+
+		    showUserStatus();
 		}
-		else {
-			alert(letter + " is the letter you've already guessed!");
-		}
-
-		if(userData.isDone()) {
-			renderQuestion();
-		}
-
-	    showUserStatus();
 	}
 }
 

@@ -10,7 +10,7 @@ body {
 	background-image: url(../images/ep_naturalwhite.png);
 }
 
-#ansWord {
+.mytitle {
 	font-size: 2em;
 	text-align: center;
 }
@@ -25,3 +25,21 @@ body {
 	border-top: 3px dashed #fff !important;
 	padding-top: 30px;
 }
+
+#wordImage {
+	width: 220px;
+	height: 200px;
+	margin-bottom: 30px;
+}
+
+#ansWord, #userScore, #userWord, #userRemained, #userGuessed {
+	color: yellow;
+	padding-bottom: 30px;
+}
+
+@media screen and (max-width: 992px) {
+	.mybox {
+		height: auto;
+	}
+}
+
