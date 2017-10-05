@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Hangman Game</title>
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet">
+</head>
+<body>
+	<div class="content">
+		<div class="row">
+			<section class="col-md-12" id="ansWord">CALL ME BY ??? </section>
+		</div>
+		<div class="row">
+			<section class="col-md-3">&nbsp;</section>
+			<section class="col-md-3 mybox">
+				<p id="userImage">
+					<img src="">
+				</p>
+				<p id="userScore">&nbsp;</p>
+			</section>
+
+			<section class="col-md-3 mybox">
+				<div class="row">
+					<div class="col-md-12">
+						<p>PLEASE ANY KEY TO GET STARTED!</p>
+						<br>
+						<p>CURRENT WORD</p>
+						<p id="userWord">&nbsp;</p>
+						<br><br>
+					</div>
+				</div>
+				<div class="row mysep">
+					<div class="col-md-12">
+						<p>NUMBER OF GUESSES REMAINING</p>
+						<p id="userRemained">&nbsp;</p>
+						<br><br>
+
+						<p>LETTERS ALREADY GUESSED</p>
+						<p id="userGuessed">&nbsp;</p>
+						<br><br>
+					</div>
+				</div>				
+			</section>
+			<section class="col-md-3">&nbsp;</section>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="assets/javascript/game.js"></script>	
+</body>
+</html>
+
+<!-- GAME OVER CONDITION... -->

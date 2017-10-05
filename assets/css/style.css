@@ -1,0 +1,27 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	color: #fff;
+	background-color: #000;
+	font-family: 'Nosifer', cursive;
+	font-size: 1.5em;
+	background-image: url(../images/ep_naturalwhite.png);
+}
+
+#ansWord {
+	font-size: 2em;
+	text-align: center;
+}
+
+.mybox {
+	height: 500px;
+	border: 3px dotted #fff !important;
+	padding-top: 30px;
+}
+
+.mysep {
+	border-top: 3px dashed #fff !important;
+	padding-top: 30px;
+}
